@@ -14,13 +14,16 @@ public class Main {
         String ip = in.nextLine();
         Pattern pat = Pattern.compile(reg);
         Matcher match = pat.matcher(ip);
+
+        String incorrect = "Correct IP address not found";
+
         try(BufferedWriter bw = new BufferedWriter(new FileWriter("ip.txt"))){
             if(match.find()){
                 bw.write("Correct IP address: " + match.group());
                 bw.flush();
             }
             else{
-                bw.write("Correct IP address not found");
+                bw.write(incorrect);
                 bw.flush();
             }
         }
